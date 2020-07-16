@@ -8,6 +8,13 @@
 $functionpath = TEMPLATEPATH.'/functions/';
 require_once($functionpath.'enqueue.php');
 require_once($functionpath.'theme-options.php');
+/**
+ * Customizer additions.
+ */
+//require get_template_directory() . '/inc/customizer.php';
+
+/**post thumbnails */
+add_theme_support( 'post-thumbnails' );
 
 /**
  * Add Menu
@@ -22,6 +29,19 @@ register_nav_menus( array(
     'footer'  => __( 'Footer Menu' , 'schema')
     
 ) );
+
+
+function my_own_mime_types( $mimes ) {
+    $mimes['svg'] = 'image/svg+xml';
+    return $mimes;
+}
+add_filter( 'upload_mimes', 'my_own_mime_types' );
+/**
+ * Custom template tags for this theme.
+ */
+//require get_template_directory() . '/inc/template-tags.php';
+
+
 
 
 ?>

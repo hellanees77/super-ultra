@@ -18,20 +18,29 @@
 					</div>
 					<div class="col">
 						<section class="widget widget_recent_entries">		
-							<h2 class="widget-title" itemprop="name">Recent Posts</h2>		
+							<h2 class="widget-title" itemprop="name">Recent Posts</h2>
+							
 							<ul>
 								<li>
-									<a href="#">Exploring Untravelled Destinations</a>
-									<span class="post-date">February 12, 2018</span>
+								<?php
+										$args = [
+											'post_type'        => 'post',
+											'posts_per_page'   => 5,
+											'orderby'          => 'date',
+											'order'            => 'DESC',
+											'no_found_rows'    => 'true',
+											'post__not_in'     => array($excludepost)
+										];
+										$the_query = new \WP_Query($args);
+										while($the_query->have_posts()) {
+											$the_query->the_post();
+								?>		
 								</li>
 								<li>
-									<a href="#">This theme recommends the following plugins</a>
-									<span class="post-date">February 12, 2018</span>
+									<a href="<?php the_permalink();?>"><?php the_title();?></a>
+									<span class="post-date"><?php echo get_the_date();?></span>
 								</li>
-								<li>
-									<a href="#">Hello world!</a>
-									<span class="post-date">November 22, 2017</span>
-								</li>
+								<?php } ?>
 							</ul>
 						</section>
 					</div>
@@ -75,6 +84,6 @@
 	</div> <!-- #page -->
 
 	<!-- JS FILES -->
-	
+	<?php wp_footer();?>
 </body>
 </html>
