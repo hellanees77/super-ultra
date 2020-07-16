@@ -30,18 +30,12 @@ register_nav_menus( array(
     
 ) );
 
-
+//Support svg images
 function my_own_mime_types( $mimes ) {
     $mimes['svg'] = 'image/svg+xml';
     return $mimes;
 }
 add_filter( 'upload_mimes', 'my_own_mime_types' );
-/**
- * Custom template tags for this theme.
- */
-//require get_template_directory() . '/inc/template-tags.php';
-
-
 
 
 ?>

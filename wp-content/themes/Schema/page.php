@@ -28,9 +28,9 @@ get_header(); ?>
 							<?php the_content();?>
 						</div>
 					</main> <!-- .site-main -->
+					<?php endwhile; ?>
                 </div> <!-- #primary -->
-                <?php endwhile; ?>
 				<?php get_sidebar();?>
 			</div> <!-- .container -->
         </div> <!-- .site-content -->
-        <?php get_footer();?>
+ <?php get_footer();?>
