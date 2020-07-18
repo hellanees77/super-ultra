@@ -18,7 +18,7 @@
 						else { $paged = 1; } 
 	
                             $custom_args = array(
-                                    'posts_per_page' => 6,
+                                    'posts_per_page' => 2,
                                     'post_type' => 'post',
                                     'orderby' => 'date',
                                     'paged'=>$paged,
@@ -32,7 +32,7 @@
                     ?>
 				<article class="post">
 					<figure class="post-thumbnail">
-						<a href="#">
+						<a href="<?php the_permalink();?>">
 							<!-- <img src="<?php //bloginfo('template_url');?>/assets/images/blog-img1.jpg" alt=""></a> -->
 							<?php
  
@@ -77,7 +77,15 @@
 				?> 
 			<nav class="navigation pagination">
 				<div class="nav-links">
-					<a class="page-numbers prev" href="#">
+
+				<?php 								
+					//custom_pagination($custom_query->max_num_pages,"",$paged);
+					// and add this code on your page 
+                ?>
+                                    
+					<?php echo get_pagination(2,$custom_query->max_num_pages); ?>
+                                    
+					<!-- <a class="page-numbers prev" href="#">
 						<span>&larr;</span> Prev
 					</a>
 					<span class="page-numbers current">
@@ -95,7 +103,7 @@
 					</a>
 					<a class="page-numbers next" href="#">
 						Next <span>&rarr;</span>
-					</a>
+					</a> -->
 				</div>
 			</nav>
 		</div> <!-- #primary -->
