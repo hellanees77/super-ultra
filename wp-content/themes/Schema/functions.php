@@ -8,6 +8,7 @@
 $functionpath = TEMPLATEPATH.'/functions/';
 require_once($functionpath.'enqueue.php');
 require_once($functionpath.'theme-options.php');
+require_once($functionpath.'theme-widgets.php');
 /**
  * Customizer additions.
  */
@@ -121,7 +122,5 @@ function get_pagination($range = 4,$max_page=0){
 	  }
 	}
   }
-
-
 
 ?>
